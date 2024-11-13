@@ -1,0 +1,10 @@
+name : To call the main workflow
+on:
+  push:
+    branches:
+      - main
+jobs:
+  call-hellow-world-workflow:
+    uses: ./helloworld.yml
+    
+    
