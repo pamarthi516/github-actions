@@ -5,6 +5,6 @@ on:
       - main
 jobs:
   call-hellow-world-workflow:
-    uses: ./helloworld.yml
+    uses: ./.github/workflows/helloworld.yml
     
     
