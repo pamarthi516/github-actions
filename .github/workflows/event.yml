@@ -3,7 +3,17 @@ on :
    pull_request:
      types:
       - opened
+     branches:
+        - main
+        - 'dev-*'
+        - feature/**' 
    workflow_dispatch:
+ ##this will trigger only to main and dev branches whenever push happend  
+   Push:
+     branches:
+        - main
+        - 'dev-*'
+        - feature/**'#this ** is used for "/" like feature/new-start/ like this
 jobs:
   deploy:
     runs-on: ubuntu-latest
