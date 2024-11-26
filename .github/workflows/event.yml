@@ -11,7 +11,7 @@ jobs:
       - name: Install dependies
         run: npm ci
       - name: test the code
-        run: npmm run the test
+        run: npm run the test
       - name: build teh code
         run: npm run the build
       - name: deploy the code
