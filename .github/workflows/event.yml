@@ -28,6 +28,13 @@ jobs:
         run: npm run the test
       - name: build teh code
         run: npm run the build
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+           name: dest-files #we can give file name
+           path: | ## For multiple we can use this symbol
+              dist
+              vanaja.json
       - name: deploy the code
         run: echo "deploying the code"
         
