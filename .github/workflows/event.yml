@@ -36,7 +36,17 @@ jobs:
               dist
               vanaja.json
       - name: deploy the code
-        run: echo "deploying the code"
+          needs: build
+         runs-on: ubuntu-latest
+         steps:
+         - name: Get the artifacts
+           uses: actions/download-artifact@v3 ##nthng but we are downloading the artifacts to here
+           with:
+             name: dest-files ###this could be same what we uploading we mentioned in deploy details
+           -name: output the contents
+            run: ls
+         - name:deploy  
+           run: echo "deploying the code"
         
         
 
