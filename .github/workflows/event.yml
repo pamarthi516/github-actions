@@ -15,8 +15,10 @@ on :
         - 'dev-*'
         - feature/**'#this ** is used for "/" like feature/new-start/ like this
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+    outputs:
+      script-file
     steps:
       - name: Output the event data
         run: echo "${{ toJson (github.event) }}"
@@ -28,6 +30,8 @@ jobs:
         run: npm run the test
       - name: build teh code
         run: npm run the build
+      - name: publish JS Filename
+        run: find path to the filename/*.Json -type f -execdir echo 'script-file{}' ';'## this is a linux xommand inorder to get the file name
       - name: upload artifacts
         uses: actions/upload-artifact@v3
         with:
