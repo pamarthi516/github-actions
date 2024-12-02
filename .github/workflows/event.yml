@@ -24,6 +24,11 @@ jobs:
         run: echo "${{ toJson (github.event) }}"
       - name: Get code
         uses: actions/checkout@v4
+      - name: cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: npm-deps-${{ hashFiles('**/package-lock.json) }}
       - name: Install dependies
         run: npm ci
       - name: test the code
