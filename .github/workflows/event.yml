@@ -6,7 +6,9 @@ on :
      branches:
         - main
         - 'dev-*'
-        - feature/**' 
+        - feature/**'
+ env:
+   Mango_DbName:hello ## providing values for the variable db name and this will be used for entire workflow unles and until we override in the job level
    workflow_dispatch:
  ##this will trigger only to main and dev branches whenever push happend  
    Push:
@@ -16,6 +18,8 @@ on :
         - feature/**'#this ** is used for "/" like feature/new-start/ like this
 jobs:
   build:
+    env:
+      Mango_DB_user: name of the sb use ## we can provide any thing as a value
     runs-on: ubuntu-latest
     outputs:
       script-file
