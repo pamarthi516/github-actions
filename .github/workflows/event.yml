@@ -20,6 +20,7 @@ jobs:
   build:
     env:
       Mango_DB_user: name of the sb use ## we can provide any thing as a value
+      port:8080
     runs-on: ubuntu-latest
     outputs:
       script-file
@@ -33,6 +34,9 @@ jobs:
         with:
           path: ~/.npm
           key: npm-deps-${{ hashFiles('**/package-lock.json) }}
+      - name: run on 
+        run: npm starts and npm waits-on http://127.1.1.1:$PORT ### inorder to use Port env this is for linuc
+          33 where as for windows we will use $env:PORT
       - name: Install dependies
         run: npm ci
       - name: test the code
