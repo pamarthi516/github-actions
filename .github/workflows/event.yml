@@ -20,7 +20,7 @@ jobs:
   build:
     env:
       Mango_DB_user: name of the sb use ## we can provide any thing as a value
-      port:8080
+      port:8080 ## and these 2 variables will be available on in buld job only not deploy job since this is set at JOB Level
     runs-on: ubuntu-latest
     outputs:
       script-file
